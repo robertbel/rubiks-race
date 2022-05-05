@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import tile from "@/components/tile.vue";
+import BoardTile from "@/components/BoardTile.vue";
 
 const props = defineProps(["cols", "rows"]);
 
@@ -13,7 +13,7 @@ const numberOfBoardTiles = computed(() => {
   <div class="board">
     <div class="board__tile" v-for="index in numberOfBoardTiles" :key="index">
       {{ index }}
-      <tile
+      <BoardTile
         v-if="index < numberOfBoardTiles"
         :index="index"
         :currentPosition="index + 1"

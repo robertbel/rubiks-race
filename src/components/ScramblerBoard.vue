@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from "vue";
-import tile from "@/components/tile.vue";
+import BoardTile from "@/components/BoardTile.vue";
 
 const props = defineProps(["cols", "rows"]);
 
@@ -17,7 +17,7 @@ const numberOfScramblerTiles = computed(() => {
       :key="index"
     >
       {{ index }}
-      <tile :index="index" :currentPosition="index + 1" />
+      <BoardTile :index="index" :currentPosition="index + 1" />
     </div>
   </div>
 </template>
