@@ -1,3 +1,14 @@
+<script setup>
+import { computed } from "vue";
+import tile from "@/components/tile.vue";
+
+const props = defineProps(["cols", "rows"]);
+
+const numberOfBoardTiles = computed(() => {
+  return props.cols * props.rows;
+});
+</script>
+
 <template>
   <div class="board">
     <div class="board__tile" v-for="index in numberOfBoardTiles" :key="index">
@@ -10,34 +21,6 @@
     </div>
   </div>
 </template>
-
-<script>
-import tile from "@/components/tile.vue";
-
-export default {
-  name: "RubiksBoard",
-  components: {
-    tile,
-  },
-  props: {
-    cols: {
-      type: Number,
-      default: 5,
-      required: true,
-    },
-    rows: {
-      type: Number,
-      default: 5,
-      required: true,
-    },
-  },
-  computed: {
-    numberOfBoardTiles() {
-      return this.cols * this.rows;
-    },
-  },
-};
-</script>
 
 <style lang="scss" scoped>
 .board {
